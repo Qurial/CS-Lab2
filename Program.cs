@@ -47,7 +47,8 @@ namespace CSLab2
 
             for (int i = 0; i < str.Length; i++)
             {
-                if (i < str.Length - 1) {
+                if (i < str.Length - 1)
+                {
                     switch (array[i])
                     {
                         case 'a':
@@ -66,7 +67,7 @@ namespace CSLab2
                 }
             }
             str = new string(array);
-            if(k > 0)
+            if (k > 0)
             {
                 str = "Wrong input";
             }
@@ -126,38 +127,63 @@ namespace CSLab2
 
         static void Main(string[] args)
         {
-            string str;
-            Console.WriteLine("Input string:");
-            str = Console.ReadLine();
-            str = TransformLine(str);
-            
-            Console.WriteLine("New string:");
-            Console.WriteLine(str);
-            Console.WriteLine("");
+            string answer = "";
+            while (answer != "exit")
+            {
+                Console.Clear();
+                Console.WriteLine("Choose ation (function1, function2, function3, exit)");
+                answer = Console.ReadLine();
+                if (answer == "function1")
+                {
+                    string str;
+                    Console.WriteLine("Input string:");
+                    str = Console.ReadLine();
+                    str = TransformLine(str);
 
-            string time1Format = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-            string time2Format = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+                    Console.WriteLine("New string:");
+                    Console.WriteLine(str);
+                    Console.WriteLine("");
+                }
 
-            Console.WriteLine(time1Format);
-            int[] timeNums1 = TimeComposition(time1Format);
+                else if (answer == "function2")
+                {
+                    string time1Format = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                    string time2Format = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
-            Console.WriteLine(time2Format);
-            int[] timeNums2 = TimeComposition(time2Format);
+                    Console.WriteLine(time1Format);
+                    int[] timeNums1 = TimeComposition(time1Format);
 
-            string num;
-            int firstNum, secondNum;
+                    Console.WriteLine(time2Format);
+                    int[] timeNums2 = TimeComposition(time2Format);
+                }
 
-            Console.WriteLine("Input first num:");
-            num = Console.ReadLine();
-            firstNum = Convert.ToInt32(num);
+                else if (answer == "function3")
+                {
+                    string num;
+                    int firstNum, secondNum;
 
-            Console.WriteLine("Input second num:");
-            num = Console.ReadLine();
-            secondNum = Convert.ToInt32(num);
+                    Console.WriteLine("Input first num:");
+                    num = Console.ReadLine();
+                    firstNum = Convert.ToInt32(num);
 
-            int pow = MaxPower(firstNum, secondNum);
-            Console.WriteLine("Max power is:");
-            Console.WriteLine(pow);
+                    Console.WriteLine("Input second num:");
+                    num = Console.ReadLine();
+                    secondNum = Convert.ToInt32(num);
+
+                    int pow = MaxPower(firstNum, secondNum);
+                    Console.WriteLine("Max power is:");
+                    Console.WriteLine(pow);
+                }
+                else if (answer == "exit") { }
+
+                else
+                {
+                    Console.WriteLine("Wrong input. Try again");
+                }
+
+                if (answer != "exit") { Console.ReadKey(); }
+            }
         }
     }
 }
+
