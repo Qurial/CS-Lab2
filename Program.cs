@@ -161,7 +161,7 @@ namespace CSLab2
                 {
                     string num;
                     int firstNum, secondNum;
-
+                    Console.WriteLine("Calculate the maximum power of two by which the product is divided consecutive numbers from a to b");
                     Console.WriteLine("Input first num:");
                     num = Console.ReadLine();
                     firstNum = Convert.ToInt32(num);
